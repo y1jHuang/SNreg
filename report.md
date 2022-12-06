@@ -44,10 +44,7 @@ To further assess the performance of our method and identify the sub-network of 
 
 **Permutation Test**
 
-<figure class="half">
-    <img src="fig/perm/coeffD_SNreg.svg" style="zoom:20%;" width="100px" title="SNreg" />
-    <img src="fig/perm/coeffD_lasso.svg" style="zoom:20%;" width="100px" title="lasso"/>
-</figure>
+<img src="fig/perm/coeffD_SNreg.svg" width="200px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="200px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="200px" title="ridge" />
 
 We exclusively compared our method with Lasso. As it indicated, our method can explain larger variance of the data, while Lasso failed to interpret information from individual's functional connectivity, with little effect. 
 
@@ -55,7 +52,7 @@ We exclusively compared our method with Lasso. As it indicated, our method can e
 
 To further demonstrate the neural substrates of intelligence, we visualize the selection times of each informative edge.
 
-
+It is suggested that, most of the edges concentrated in the default mode network and the control network. 
 
 
 
