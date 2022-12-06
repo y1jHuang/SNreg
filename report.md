@@ -60,6 +60,7 @@ It is suggested that, most of the edges concentrated in the default mode network
 
 To save loading memory on `github`, I only post the connectome of the control network. Please check `fig >> 3D` for further detailed speculation in 3D view, or check `fig >> 2D` for 2D view.
 
+![conn_Cont](https://user-images.githubusercontent.com/115483486/205982562-23df0f0f-347a-447d-b0d6-99a0fef19326.gif)
 
 
 **Reference**  
