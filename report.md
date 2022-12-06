@@ -44,7 +44,7 @@ To further assess the performance of our method and identify the sub-network of 
 
 **Permutation Test**
 
-<img src="fig/perm/coeffD_SNreg.svg" width="400px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="400px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="400px" title="ridge" />
+<img src="fig/perm/coeffD_SNreg.svg" width="300px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="300px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="300px" title="ridge" />
 
 We exclusively compared our method with Lasso. As it indicated, our method can explain larger variance of the data, while Lasso failed to interpret information from individual's functional connectivity, with little effect. 
 
