@@ -36,23 +36,29 @@ To further assess the performance of our method and identify the sub-network of 
 
 **Summary of Performance**
 
-|  Method  |     $MSE$     |    ${R}^2$    |    elapsed    |     edges     |
+|  Method  |      MSE      |    ${R}^2$    |    elapsed    |     edges     |
 | :------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | `GBoost` | 0.889 (0.051) | 0.153 (0.058) | 825.1 (32.76) | 107.9 (1.825) |
 | `Lasso`  | 1.050 (0.045) | 0.008 (0.046) | 11.36 (2.399) | 60.18 (32.74) |
 | `Ridge`  | 0.928 (0.030) | 0.124 (0.047) | 36.59 (4.477) |       -       |
 
+Here, $\pmb{\mathsf{MSE}}$ is mean squared error, $R^2$ is coefficient of determination, $\pmb{\mathsf{elapsed}}$ is the running time and $\pmb{\mathsf{edges}}$ is the average number of selected edges across folds.
+
+As we can see, our method is outperformed other regression approaches with larger explained variance. Moreover, it can robustly select informative edges across folds, while preserving information as much as possible.
+
 **Permutation Test**
 
-<img src="fig/perm/coeffD_SNreg.svg" width="300px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="300px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="300px" title="ridge" />
+<img src="fig/perm/coeffD_SNreg.svg" width="200px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="200px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="200px" title="ridge" />
 
-We exclusively compared our method with Lasso. As it indicated, our method can explain larger variance of the data, while Lasso failed to interpret information from individual's functional connectivity, with little effect. 
+We exclusively compared our method with Lasso. As it indicated, our method can explain larger variance of the data, while Lasso failed to interpret information from individual's functional connectivity.
 
 **Edge Selection**
 
-To further demonstrate the neural substrates of intelligence, we visualize the selection times of each informative edge.
+To further demonstrate the neural substrates of intelligence, we visualize the selection times of each informative edge. I checked the $\pmb{\omega}$ value and accordingly relabeled the selected times, in order to indicate signs of their signals. Specifically, for a certain edge, speculate whether its $\omega_{i,j}$ was all negative or positive across folds where it was selected, then relabeled negative edges with negative selected times, while kept positive ones the same. Fortunately, selected edges all have consistent signs across different folds. Thus there is no controversy in relabeling their selected times.
 
-It is suggested that, most of the edges concentrated in the default mode network and the control network. 
+It is suggested that, most of the edges concentrated in the default mode network and the control network. Furthermore, the selected edges spread across all eight work, which indicates that the general cognitive ability might be the function of the whole brain. We can also observe some lateralization in edges related to the visual network and the language network, which may provide some insights into the organization of our brain.
+
+To save loading memory on `github`, I only post the connectome of the control network. Please check `fig >> 3D` for further detailed speculation in 3D view, or check `fig >> 2D` for 2D view.
 
 
 
