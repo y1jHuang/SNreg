@@ -48,7 +48,7 @@ As we can see, our method is outperformed other regression approaches with large
 
 **Permutation Test**
 
-<img src="fig/perm/coeffD_SNreg.svg" width="200px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="200px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="200px" title="ridge" />
+<img src="fig/perm/coeffD_SNreg.svg" width="300px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="300px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="300px" title="ridge" />
 
 We exclusively compared our method with Lasso. As it indicated, our method can explain larger variance of the data, while Lasso failed to interpret information from individual's functional connectivity.
 
@@ -61,8 +61,6 @@ It is suggested that, most of the edges concentrated in the default mode network
 To save loading memory on `github`, I only post the connectome of the control network. Please check `fig >> 3D` for further detailed speculation in 3D view, or check `fig >> 2D` for 2D view.
 
 ![conn_DorsAttn](https://user-images.githubusercontent.com/115483486/205982822-8382e33d-cec7-40d8-985f-cd1f7e9eda08.gif)
-
-
 
 **Reference**  
 Bühlmann, P. (2006). Boosting for high-dimensional linear models. *The Annals of Statistics*, *34*(2). https://doi.org/10.1214/009053606000000092  
