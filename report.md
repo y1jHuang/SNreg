@@ -18,6 +18,8 @@ We applied our method to reveal neural substrates of intelligence. Treating func
 
 **Functional Connectivity generation**
 
+![parc_Kong](https://user-images.githubusercontent.com/115483486/206518606-b7b06466-b530-408f-8464-a1ae23099750.png)
+
 To generate functional connectivity matrices, we first parcellated the brain with Kong’s parcellation (Kong et al., 2021), which exhibited the best homogeneity within each network. Time-series extraction simply consisted in averaging data from vertices within each parcel (brain region), and matrix generation in pair-wise correlating parcel time series (Pearson correlation).
 
 **Extraction of general cognitive ability**
@@ -55,6 +57,8 @@ It suggested that all methods were able to predict individuals' intelligence thr
 **Edge Selection**
 
 To further demonstrate the neural substrates of intelligence, we visualize the selection times of each informative edge (brain region pairs). In order to present their signal signs, I checked the $\pmb{\omega}$ value and accordingly relabeled the selected times. Specifically, for a certain edge, speculate whether its $\omega_{i,j}$ was all negative or positive across folds where it was selected, then relabeled negative edges with negative selected times, while kept positive ones the same. Fortunately, selected edges all have consistent signs across different folds. Thus there is no controversy in relabeling their selected times.
+
+I posted some of the results below. It demonstrated average selected times of each informative edge. Their values, which are positive or negative, mean their signal signs in intelligence prediction. The color of connection points corresponds to the networks they localize, and can be checked in [Kong's parcellaion](#rs-fMRI analysis)
 
 It is suggested that, most of the edges concentrated in the default mode network and the control network. Furthermore, the selected edges spread across all eight work, which indicates that the general cognitive ability might be the function of the whole brain. We can also observe some lateralization in edges related to the visual network and the language network, which may provide some insights into the organization of our brain.
 
