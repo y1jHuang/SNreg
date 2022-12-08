@@ -12,7 +12,7 @@ Functional connectome fingerprinting (Finn et al., 2015) has aroused heated disc
 
 Boosting algorithm was developed to improve prediction by combining weak learners, and it has evolved into various adaptations. Among them, $L_2$ boosting has shown excellent performance in high-dimensional settings (Bühlmann, 2006), with a wide range of applications in brain imaging and genomics. Here we developed a two-stage $L_2$ boosting algorithm to perform variable selection in a group structure. The first stage is for group (brain network pairs) selection. Assume that edges (brain region pairs) that distribute in the same group have similar effects on cognition or other features. Hence, the predictors were acquired by averaging the functional connectivity within each group, and the response variables are individuals' characteristics. Then we utilize $L_2$ boosting to select informative groups. The second stage is for edge selection, we first choose edges belonging to selected groups as predictors, and still treat individuals’ characteristics as response variables, then we perform $L_2$ boosting to further select informative edges. Unlike previous algorithms which run multiple times in a cross-validation set-up, to make our method computationally attractive, we used corrected AIC/BIC criteria (Bühlmann, 2006; Chen & Chen, 2008) to stop the iteration. We prefer the AIC criterion in the first stage for small errors and the BIC criterion in the second stage to avoid overfitting.
 
-### rs-fMRI analysis
+### fMRI analysis
 
 We applied our method to reveal neural substrates of intelligence. Treating functional connectivity matrices as predictors and general cognitive ability as response variables, a k-fold cross-validation scheme was conducted. It suggested that our method showed better performance on this task. Moreover, we achieved sparsity in predictors, which implied the neural mechanisms of intelligence. 
 
@@ -58,13 +58,19 @@ It suggested that all methods were able to predict individuals' intelligence thr
 
 To further demonstrate the neural substrates of intelligence, we visualize the selection times of each informative edge (brain region pairs). In order to present their signal signs, I checked the $\pmb{\omega}$ value and accordingly relabeled the selected times. Specifically, for a certain edge, speculate whether its $\omega_{i,j}$ was all negative or positive across folds where it was selected, then relabeled negative edges with negative selected times, while kept positive ones the same. Fortunately, selected edges all have consistent signs across different folds. Thus there is no controversy in relabeling their selected times.
 
-I posted some of the results below. It demonstrated average selected times of each informative edge. Their values, which are positive or negative, mean their signal signs in intelligence prediction. The color of the connection points corresponds to the networks they localize, and can be checked in [Kong's parcellation](#rs-fMRI analysis)
+I posted some of the results below. It demonstrated average selected times of each informative edge. Their values, which are positive or negative, mean their signal signs in intelligence prediction. The color of the connection points corresponds to the networks they localize, and can be checked in [Kong](#fMRI analysis)
 
 It is suggested that, most of the edges concentrated in the default mode network and the control network. Furthermore, the selected edges spread across all eight work, which indicates that the general cognitive ability might be the function of the whole brain. We can also observe some lateralization in edges related to the visual network and the language network, which may provide some insights into the organization of our brain.
 
-To save loading memory on `github`, I only post the connectome of the control network. Please check `fig >> 3D` for further detailed speculation in 3D view, or check `fig >> 2D` for 2D view.
+Please check `fig >> 3D` for further detailed speculation and interactions in 3D view, or check `fig >> 2D` for 2D view.
 
+![conn_Aud](https://user-images.githubusercontent.com/115483486/206523383-bde2cf62-9a3a-4375-ab8f-70255821b309.gif)
+![conn_Cont](https://user-images.githubusercontent.com/115483486/206523436-736bcf60-fd2d-493d-9f5a-48b9621ef6e1.gif)
+![conn_Default](https://user-images.githubusercontent.com/115483486/206523459-eb347071-56c9-43cd-ab5e-9b5ab50547e6.gif)
 ![conn_DorsAttn](https://user-images.githubusercontent.com/115483486/205982822-8382e33d-cec7-40d8-985f-cd1f7e9eda08.gif)
+![conn_Language](https://user-images.githubusercontent.com/115483486/206523497-32f2e3fa-797c-47af-8c36-dfa002b7f283.gif)
+![conn_SalVenAttn](https://user-images.githubusercontent.com/115483486/206523504-66b2664b-a51d-4280-857b-8ed2e55cbc63.gif)
+![conn_SomMot](https://user-images.githubusercontent.com/115483486/206523526-c99ae8a3-9f47-4137-b6b3-832adb1403ae.gif)
 ![conn_Visual](https://user-images.githubusercontent.com/115483486/206518054-24876edb-1098-4b95-bd1f-234bded3b12c.gif)
 
 **Reference**  
