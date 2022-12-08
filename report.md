@@ -1,6 +1,6 @@
 # Report of Scalar-on-Network Regression
 
-**Abstract** There is a growing trend in learning the association between individuals’ brain connectivity networks and their clinical characteristics as well as symptoms. It requires a kind of model whose response variable is scalar, and the predictors are networks or adjacent matrices. Therefore, in this research, we developed a new boosting method for variable screening. The performance of our method was demonstrated through analysis of the rs-fMRI data.
+**Abstract** There is a growing trend in learning the association between individuals’ brain connectivity networks and their clinical characteristics as well as symptoms. It requires a kind of model whose response variable is scalar, and the predictors are networks or adjacent matrices. Therefore, in this research, we developed a new boosting method for variable screening. The performance of our method was demonstrated through analysis of the rs-fMRI data. It also indicated an underlying neural structure of intelligence, which may provide another approach for diagnosis of psychiatric or other mental diseases.
 
 ## Introduction
 
@@ -14,23 +14,23 @@ Boosting algorithm was developed to improve prediction by combining weak learner
 
 ### rs-fMRI analysis
 
-We applied our method to reveal neural substrates of general cognitive ability.
+We applied our method to reveal neural substrates of intelligence. Treating functional connectivity matrices as predictors and general cognitive ability as response variables, a k-fold cross-validation scheme was conducted. It suggested that our method showed better performance on this task. Moreover, we achieved sparsity in predictors, which implied the neural mechanisms of intelligence. 
 
-##### Functional Connectivity generation
+**Functional Connectivity generation**
 
-To generate functional connectivity matrices, we first parcellated the brain with Kong’s parcellation (Kong et al., 2021), which exhibited the best homogeneity within each network. Then we calculate ROI-wise functional connectivity with Pearson correlation and transformed it to Fisher-Z. 
+To generate functional connectivity matrices, we first parcellated the brain with Kong’s parcellation (Kong et al., 2021), which exhibited the best homogeneity within each network. Time-series extraction simply consisted in averaging data from vertices within each parcel (brain region), and matrix generation in pair-wise correlating parcel time series (Pearson correlation).
 
 **Extraction of general cognitive ability**
 
-To acquire general cognitive ability as the response variable, we conducted an explanatory factor analysis on 10 cognitive batteries from the HCP. 
+To acquire general cognitive ability as the response variable, we conducted an explanatory factor analysis on 10 cognitive batteries from the HCP. Using the `psych` package in `R`, we derived a common factor $g$ which loads on all test scores, and several group factors that each load on subsets of the test scores.
 
 **K-fold cross-validation**
 
-Finally, we evaluated our method by repeating 10-fold cross-validation 50 times. 
+Finally, we evaluated our method by repeating 10-fold cross-validation 50 times. Coefficient of determination and mean squared error were calculated to evaluate the performances of each method. We also recorded their elapsed time, number of selected variables for comparison.
 
 **Permutation test**
 
-To further assess the performance of our method and identify the sub-network of intelligence, we developed a nonparametric permutation test. Topological null models (Váša & Mišić, 2022) were constructed by randomizing the connection points of each edge in functional connectivity matrices, while still preserving their connection strength. Then we treat them as predictors in cross-validation, regarding the output statistics on null models as baselines. After that, we permutated the data both from null models and empirical models (real functional connectivity matrix) 1000 times, calculating the average distance and the significance. We used the coefficient of determination as an assessment of performance, and selected times (non-zero times of $\pmb{\omega}$) as the selection robustness.
+To further assess the performance of our method and identify the sub-network of intelligence, we developed a nonparametric permutation test. Topological null models (Váša & Mišić, 2022) were constructed by randomizing the connection points of each edge in functional connectivity matrices, while still preserving their connection strength. Then we treat the null model as predictors in cross-validation, regarding its output statistics as baselines. After that, we permutated the data both from null models and empirical models (real functional connectivity matrices) 1000 times, calculating the average distance and the significance. We specifically run permutation tests on coefficient of determination and selected times (non-zero times of $\pmb{\omega}$), in order to quantify the utility of each method and their selection robustness.
 
 ## Results
 
@@ -50,17 +50,18 @@ As we can see, our method is outperformed other regression approaches with large
 
 <img src="fig/perm/coeffD_SNreg.svg" width="300px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="300px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="300px" title="ridge" />
 
-We exclusively compared our method with Lasso. As it indicated, our method can explain larger variance of the data, while Lasso failed to interpret information from individual's functional connectivity.
+It suggested that all methods were able to predict individuals' intelligence through functional connectivity. However, compared to other methods, ours has larger effect size, indicating the well preservation when interpret the brain network. Thus the efficiency of `GBoost` was proved once more. 
 
 **Edge Selection**
 
-To further demonstrate the neural substrates of intelligence, we visualize the selection times of each informative edge. I checked the $\pmb{\omega}$ value and accordingly relabeled the selected times, in order to indicate signs of their signals. Specifically, for a certain edge, speculate whether its $\omega_{i,j}$ was all negative or positive across folds where it was selected, then relabeled negative edges with negative selected times, while kept positive ones the same. Fortunately, selected edges all have consistent signs across different folds. Thus there is no controversy in relabeling their selected times.
+To further demonstrate the neural substrates of intelligence, we visualize the selection times of each informative edge (brain region pairs). In order to present their signal signs, I checked the $\pmb{\omega}$ value and accordingly relabeled the selected times. Specifically, for a certain edge, speculate whether its $\omega_{i,j}$ was all negative or positive across folds where it was selected, then relabeled negative edges with negative selected times, while kept positive ones the same. Fortunately, selected edges all have consistent signs across different folds. Thus there is no controversy in relabeling their selected times.
 
 It is suggested that, most of the edges concentrated in the default mode network and the control network. Furthermore, the selected edges spread across all eight work, which indicates that the general cognitive ability might be the function of the whole brain. We can also observe some lateralization in edges related to the visual network and the language network, which may provide some insights into the organization of our brain.
 
 To save loading memory on `github`, I only post the connectome of the control network. Please check `fig >> 3D` for further detailed speculation in 3D view, or check `fig >> 2D` for 2D view.
 
 ![conn_DorsAttn](https://user-images.githubusercontent.com/115483486/205982822-8382e33d-cec7-40d8-985f-cd1f7e9eda08.gif)
+![conn_Visual](https://user-images.githubusercontent.com/115483486/206518054-24876edb-1098-4b95-bd1f-234bded3b12c.gif)
 
 **Reference**  
 Bühlmann, P. (2006). Boosting for high-dimensional linear models. *The Annals of Statistics*, *34*(2). https://doi.org/10.1214/009053606000000092  
