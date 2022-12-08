@@ -51,7 +51,6 @@ As we can see, our method is outperformed other regression approaches with large
 **Permutation Test**
 
 <img src="fig/perm/coeffD_SNreg.svg" width="300px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="300px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="300px" title="ridge" />
-            Scalar-on-network regression                    Lasso                                     Ridge
 
 It suggested that all methods were able to predict individuals' intelligence through functional connectivity. However, compared to other methods, ours has larger effect size, indicating the well preservation when interpret the brain network. Thus the efficiency of `GBoost` was proved once more. 
 
