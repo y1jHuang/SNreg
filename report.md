@@ -46,7 +46,7 @@ To further assess the performance of our method and identify the sub-network of 
 
 Here, $\pmb{\mathsf{MSE}}$ is mean squared error, $R^2$ is coefficient of determination, $\pmb{\mathsf{elapsed}}$ is the running time and $\pmb{\mathsf{edges}}$ is the average number of selected edges across folds.
 
-As we can see, our method is outperformed other regression approaches with larger explained variance. Moreover, it can robustly select informative edges across folds, while preserving information as much as possible.
+As we can see, our method is outperformed other regression approaches with larger explained variance. Moreover, it can robustly select informative edges across folds, while preserving information as much as possible. In contrast, predictor variables selected by `Lasso` are much less and unstable than `GBoost` did. It might lose large amount of information and failed to make prediction.
 
 **Permutation Test**
 
