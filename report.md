@@ -28,7 +28,7 @@ To acquire general cognitive ability as the response variable, we conducted an e
 
 **K-fold cross-validation**
 
-Finally, we evaluated our method by repeating 10-fold cross-validation 50 times. Coefficient of determination and mean squared error were calculated to evaluate the performances of each method. We also recorded their elapsed time and the number of selected variables for comparison.
+Finally, we applied our method to predict general cognitive ability with functional connectivity, running 10-fold cross-validation 50 times. Coefficient of determination and mean squared error were calculated to evaluate the performances of each method. We also recorded their elapsed time and the number of selected variables for comparison.
 
 **Permutation test**
 
