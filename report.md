@@ -20,7 +20,7 @@ For more information, please click [GBoost](https://github.com/y1jHuang/GBoost)
 
 ### fMRI analysis
 
-We applied our method to reveal neural substrates of intelligence. Treating functional connectivity matrices as predictors and general cognitive ability as response variables, a k-fold cross-validation scheme was conducted. It suggested that our method showed better performance on this task. Moreover, we achieved sparsity in predictors, which implied the neural mechanisms of intelligence. 
+We applied our method to reveal neural substrates of intelligence. Treating functional connectivity matrices as predictors and general cognitive ability as response variables, a k-fold cross-validation scheme was conducted. It suggested that our method showed good performance on this task. Moreover, we achieved sparsity in predictors, which implied the neural mechanisms of intelligence. 
 
 **Functional Connectivity generation**
 
