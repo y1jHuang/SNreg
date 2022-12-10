@@ -1,6 +1,6 @@
 # Report of Scalar-on-Network Regression
 
-**Abstract** There is a growing trend in learning the association between individuals’ brain connectivity networks and their clinical characteristics as well as symptoms. It requires a kind of model whose response variable is scalar, and the predictors are networks or adjacent matrices. Therefore, in this research, we developed a new boosting method for variable screening. The performance of our method was demonstrated through analysis of the rs-fMRI data. It also indicated an underlying neural structure of intelligence, which may provide another approach for diagnosis of psychiatric or other mental diseases.
+**Abstract** There is a growing trend in learning the association between individuals’ brain connectivity networks and their clinical characteristics as well as symptoms. It requires a kind of model whose response variable is scalar, and the predictors are networks or adjacent matrices. Therefore, in this research, we developed a new boosting method for variable screening. The performance of our method was demonstrated through analysis of the rs-fMRI data. It also indicated an underlying neural structure of intelligence, which may provide another approach for the diagnosis of psychiatric or other mental diseases.
 
 ## Introduction
 
@@ -28,7 +28,7 @@ To acquire general cognitive ability as the response variable, we conducted an e
 
 **K-fold cross-validation**
 
-Finally, we evaluated our method by repeating 10-fold cross-validation 50 times. Coefficient of determination and mean squared error were calculated to evaluate the performances of each method. We also recorded their elapsed time, number of selected variables for comparison.
+Finally, we evaluated our method by repeating 10-fold cross-validation 50 times. Coefficient of determination and mean squared error were calculated to evaluate the performances of each method. We also recorded their elapsed time and the number of selected variables for comparison.
 
 **Permutation test**
 
@@ -46,21 +46,21 @@ To further assess the performance of our method and identify the sub-network of 
 
 Here, $\pmb{\mathsf{MSE}}$ is mean squared error, $R^2$ is coefficient of determination, $\pmb{\mathsf{elapsed}}$ is the running time and $\pmb{\mathsf{edges}}$ is the average number of selected edges across folds.
 
-As we can see, our method is outperformed other regression approaches with larger explained variance. Moreover, it can robustly select informative edges across folds, while preserving information as much as possible. In contrast, predictor variables selected by `Lasso` are much less and unstable than `GBoost` did. It might lose large amount of information and failed to make prediction.
+As we can see, our method outperformed other regression approaches with larger explained variance. Moreover, it can robustly select informative edges across folds, while preserving information as much as possible. In contrast, predictor variables selected by `Lasso` are much unstable than `GBoost` did. It might lose large amount of information and fail to make the prediction.
 
 **Permutation Test**
 
 <img src="fig/perm/coeffD_SNreg.svg" width="300px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="300px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="300px" title="ridge" />
 
-It suggested that all methods were able to predict individuals' intelligence through functional connectivity. However, compared to other methods, ours has larger effect size, indicating the well preservation when interpret the brain network. Thus the efficiency of `GBoost` was proved once more. 
+It suggested that all methods were able to predict individuals' intelligence through functional connectivity. However, compared to other methods, ours has larger effect size, indicating the good preservation when interpreting the brain network. Thus the efficiency of `GBoost` was proved once more. 
 
 **Edge Selection**
 
-To further demonstrate the neural substrates of intelligence, we visualize the selection times of each informative edge (brain region pairs). In order to present their signal signs, I checked the $\pmb{\omega}$ value and accordingly relabeled the selected times. Specifically, for a certain edge, speculate whether its $\omega_{i,j}$ was all negative or positive across folds where it was selected, then relabeled negative edges with negative selected times, while kept positive ones the same. Fortunately, selected edges all have consistent signs across different folds. Thus there is no controversy in relabeling their selected times.
+To further demonstrate the neural substrates of intelligence, we visualize the selection times of each informative edge (brain region pairs). In order to present their signal signs, I checked the $\pmb{\omega}$ value and accordingly relabeled the selected times. Specifically, for a certain edge, speculate whether its $\omega_{i,j}$ was all negative or positive across folds where it was selected, then relabeled negative edges with negative selected times, while keeping positive ones the same. Fortunately, selected edges all have consistent signs across different folds. Thus there is no controversy in relabeling their selected times.
 
-I posted some of the results below. It demonstrated average selected times of each informative edge. Their values, which are positive or negative, mean their signal signs in intelligence prediction. The color of the connection points corresponds to the networks they localize, and can be checked in [Kong's parcellation](#Methods)
+I posted some of the results below. It demonstrated the average selected times of each informative edge. Their values, which are positive or negative, mean their signal signs in intelligence prediction. The color of the connection points corresponds to the networks they localize and can be checked in [Kong's parcellation](#Methods)
 
-It suggested that, most of the edges concentrated in the default mode network and the control network. Furthermore, the selected edges spread across all eight work, which indicates that the general cognitive ability might be the function of the whole brain. We can also observe some lateralization in edges related to the visual network and the language network, which may provide some insights into the organization of our brain.
+It suggested that most of the edges concentrate in the default mode network and the control network. Furthermore, the selected edges spread across all eight networks, which indicates that the general cognitive ability might be the function of the whole brain. We can also observe some lateralization in edges related to the visual network and the language network, which may provide some insights into the organization of our brain.
 
 Please check `fig >> 3D` for further detailed speculation and interactions in 3D view, or check `fig >> 2D` for 2D view.
 
