@@ -68,8 +68,17 @@ I posted some of the results below. It demonstrated the average selected times o
 
 It suggested that most of the edges concentrate in the default mode network and the control network. Furthermore, the selected edges spread across all eight networks, which indicates that the general cognitive ability might be the function of the whole brain. We can also observe some lateralization in edges related to the visual network and the language network, which may provide some insights into the organization of our brain.
 
-Please check `fig >> 3D` for further detailed speculation and interactions in 3D view, or check `fig >> 2D` for 2D view.
+Please click links below for further detailed speculation and interactions in 3D view.
+[connectome of the auditory network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_Aud.html)
+[connectome of the control network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_Cont.html)
+[connectome of the default mode network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_Default.html)
+[connectome of the dorsal attention network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_DorsAttn.html)
+[connectome of the language network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_Language.html)
+[connectome of the salience and ventral attention network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_SalVenAttn.html)
+[connectome of the somatomotor network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_SomMot.html)
+[connectome of the visual network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_Visual.html)
 
+Or you can directly view them in GIF format:
 ![conn_Aud](https://user-images.githubusercontent.com/115483486/206523383-bde2cf62-9a3a-4375-ab8f-70255821b309.gif)
 ![conn_Cont](https://user-images.githubusercontent.com/115483486/206523436-736bcf60-fd2d-493d-9f5a-48b9621ef6e1.gif)
 ![conn_Default](https://user-images.githubusercontent.com/115483486/206523459-eb347071-56c9-43cd-ab5e-9b5ab50547e6.gif)
