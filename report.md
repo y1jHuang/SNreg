@@ -1,6 +1,6 @@
-# Report of Scalar-on-Network Regression
+# Revealing neural substrates of general cognitive ability with an adapted boosting method
 
-**Abstract** There is a growing trend in learning the association between individuals’ brain connectivity networks and their clinical characteristics as well as symptoms. It requires a kind of model whose response variable is scalar, and the predictors are networks or adjacent matrices. Therefore, in this research, we developed a new boosting method for variable screening. The performance of our method was demonstrated through analysis of the rs-fMRI data. It also indicated an underlying neural structure of intelligence, which may provide another approach for the diagnosis of psychiatric or other mental diseases.
+**Abstract** There is a growing trend in learning the association between individuals’ brain connectivity networks and their clinical characteristics as well as symptoms. It requires a kind of model whose response variable is scalar, and the predictors are networks or adjacent matrices. Therefore, in this research, we developed a new boosting method for variable screening. The performance of our method was demonstrated through analysis of the rs-fMRI data. It is indicated that this method can not only provide excellent prediction, but also achieve sparsity to reveal underlying neural structures of intelligence, which may provide another approach for the diagnosis of psychiatric or mental diseases.
 
 ## Introduction
 
@@ -20,13 +20,13 @@ For more information, please click [GBoost](https://github.com/y1jHuang/GBoost)
 
 ### fMRI analysis
 
-We applied our method to reveal neural substrates of intelligence. Treating functional connectivity matrices as predictors and general cognitive ability as response variables, a k-fold cross-validation scheme was conducted. It suggested that our method showed good performance on this task. Moreover, we achieved sparsity in predictors, which implied the neural mechanisms of intelligence. 
+We applied our method to reveal neural substrates of intelligence. Treating functional connectivity matrices as predictors and general cognitive ability as response variables, a k-fold cross-validation scheme was conducted on HCP (Human Connectome Project) datasets. Nonparametric permutation tests were developed to further investigate its performance and interpret the neural architecture of selected variables. 
 
 **Functional Connectivity generation**
 
 ![parc_Kong](https://user-images.githubusercontent.com/115483486/206518606-b7b06466-b530-408f-8464-a1ae23099750.png)
 
-To generate functional connectivity matrices, we first parcellated the brain with Kong’s parcellation (Kong et al., 2021), which exhibited the best homogeneity within each network. Time-series extraction simply consisted in averaging data from vertices within each parcel (brain region), and matrix generation in pair-wise correlating parcel time series (Pearson correlation).
+To generate functional connectivity matrices, we first parcellated the brain with Kong’s parcellation (Kong et al., 2021), which exhibited the best homogeneity within each network. Time-series extraction simply consisted of averaging data from vertices within each parcel (brain region), and matrix generation in pair-wise correlating parcel time series (Pearson correlation).
 
 **Extraction of general cognitive ability**
 
@@ -52,7 +52,7 @@ To further assess the performance of our method and identify the sub-network of 
 
 Here, $\pmb{\mathsf{MSE}}$ is mean squared error, $R^2$ is coefficient of determination, $\pmb{\mathsf{elapsed}}$ is the running time and $\pmb{\mathsf{edges}}$ is the average number of selected edges across folds.
 
-As we can see, our method outperformed other regression approaches with larger explained variance. Moreover, it can robustly select informative edges across folds, while preserving information as much as possible. In contrast, predictor variables selected by `Lasso` are much unstable than `GBoost` did. It might lose large amount of information and fail to make the prediction.
+As we can see, our method outperformed other regression approaches with larger explained variance. Moreover, it can robustly select informative edges across folds (with low sd. in number of selected edges), while preserving information as much as possible. In contrast, predictor variables selected by `Lasso` are much unstable than `GBoost` did. It might lose large amount of information and fail to make the prediction.
 
 **Permutation Test**
 
@@ -62,13 +62,13 @@ It suggested that all methods were able to predict individuals' intelligence thr
 
 **Edge Selection**
 
-To further demonstrate the neural substrates of intelligence, we visualize the selection times of each informative edge (brain region pairs). In order to present their signal signs, I checked the $\pmb{\omega}$ value and accordingly relabeled the selected times. Specifically, for a certain edge, speculate whether its $\omega_{i,j}$ was all negative or positive across folds where it was selected, then relabeled negative edges with negative selected times, while keeping positive ones the same. Fortunately, selected edges all have consistent signs across different folds. Thus there is no controversy in relabeling their selected times.
+We desire to not only make good prediction with functional connectivity, but also reveal neural structure of selected variables. Thus, we visualize the selection times of each informative edge (brain region pairs) across folds. In order to present their signal signs, I checked the $\pmb{\omega}$ value and accordingly relabeled the selected times. Specifically, for a certain edge, speculate whether its $\omega_{i,j}$ was all negative or positive when it was selected, then relabeled negative edges with negative selected times, while leaving positive ones as the same. Fortunately, selected edges all have consistent signs across different folds. Thus there is no controversy in relabeling their selected times.
 
 I posted some of the results below. It demonstrated the average selected times of each informative edge. Their values, which are positive or negative, mean their signal signs in intelligence prediction. The color of the connection points corresponds to the networks they localize and can be checked in [Kong's parcellation](#Methods)
 
 It suggested that most of the edges concentrate in the default mode network and the control network. Furthermore, the selected edges spread across all eight networks, which indicates that the general cognitive ability might be the function of the whole brain. We can also observe some lateralization in edges related to the visual network and the language network, which may provide some insights into the organization of our brain.
 
-Please click links below for further detailed speculation and interactions in 3D view.  
+Please click links below for further detailed speculation and interactions in 3D view (**Preferred**).  
 [connectome of the auditory network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_Aud.html)  
 [connectome of the control network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_Cont.html)  
 [connectome of the default mode network](https://y1jhuang.github.io/SNreg/fig/3D/connectome_Default.html)  
