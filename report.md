@@ -30,7 +30,7 @@ To generate functional connectivity matrices, we first parcellated the brain wit
 
 **Extraction of general cognitive ability**
 
-To acquire general cognitive ability as the response variable, we conducted an explanatory factor analysis on 10 cognitive batteries from the HCP. Using the `psych` package in `R`, we derived a common factor $g$ which loads on all test scores, and several group factors that each load on subsets of the test scores.
+To acquire general cognitive ability as the response variable, we conducted an exploratory factor analysis on 10 cognitive batteries from the HCP. Using the `psych` package in `R`, we derived a common factor $g$ which loads on all test scores, and several group factors that each load on subsets of the test scores.
 
 **K-fold cross-validation**
 
