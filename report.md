@@ -58,7 +58,7 @@ As we can see, our method outperformed other regression approaches with larger e
 
 <img src="fig/perm/coeffD_SNreg.svg" width="300px" title="SNreg" /><img src="fig/perm/coeffD_lasso.svg" width="300px" title="lasso" /><img src="fig/perm/coeffD_ridge.svg" width="300px" title="ridge" />
 
-It suggested that all methods were able to predict individuals' intelligence through functional connectivity. However, compared to other methods, ours has larger effect size, indicating the good preservation when interpreting the brain network. Thus the efficiency of `GBoost` was proved once more. 
+It suggested that all methods were able to predict individuals' intelligence through functional connectivity. However, compared to other methods, scalar-on-network regression has larger effect size, indicating the good preservation when interpreting the brain network.
 
 **Edge Selection**
 
